@@ -141,6 +141,7 @@ print(bool_test(30)) # True
 print(bool_test([])) # False
 print(bool_test(["a non empty","list"])) # True
 
+
 # /////
 
 def type_check(variable):
@@ -160,3 +161,33 @@ print(type_check("Hello World!")) # this variable type is: String
 print(type_check(123)) # this variable type is: Integer
 print(type_check(1.11)) # this variable type is: Float
 print(type_check(["i am a list!"])) # this variable type is: List
+
+# I am wondering why the first one doesn't showed the right answer, while it works on my vs code properly. 
+# on the previous exercise which was about loop i has the same problem
+
+# //////
+
+# create a simple function named double_input(input), which takes any input variable and returns that variable, times 2 
+
+# "hello"*2 = "hellohello" 
+# 2*2 = 4.
+
+
+# For example:
+
+# Test	Result
+# print(double_input("Hello"))
+# HelloHello
+# print(double_input(2))
+# 4
+# print(double_input([1,2,3]))
+# [1, 2, 3, 1, 2, 3]
+# Answer:(penalty regime: 10, 20, ... %)
+
+def double_input(input):
+    return input * 2
+
+# Test cases
+print(double_input("Hello"))  # Should print "HelloHello"
+print(double_input(2))        # Should print "4"
+print(double_input([1, 2, 3]))  # Should print "[1, 2, 3, 1, 2, 3]"
