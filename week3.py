@@ -381,19 +381,14 @@ def list_reader(lst):
     # Print the list in reverse order
     print(lst[::-1])
     
-    # Ensure all elements are strings for sorting and filter out empty elements
+    # Convert all elements to strings and remove empty elements
     non_empty_list = [str(item) for item in lst if str(item).strip()]
     
-    # Sort the list alphabetically, considering case insensitivity
-    non_empty_list.sort(key=lambda x: x.lower())
+    # Sort the non-empty list alphabetically, considering case insensitivity
+    sorted_non_empty_list = sorted(non_empty_list, key=lambda x: x.lower())
     
-    # Print the first value if the non-empty list is not empty
-    if non_empty_list:
-        print(non_empty_list[0])
-    
-    # Return the length of the non-empty list
-    return len(non_empty_list)
+    # Return the length of the non-empty string list
+    return len(sorted_non_empty_list)
 
-# Then you would call the function like this:
-result = list_reader(["a", "Bee", "Sea", "D", ""])
-print(result)  # This should print the length of the non-empty list
+# You would call the function and print its return value like this:
+print(list_reader(["a", "Bee", "Sea", "D", ""]))  # This will print the length of the non-empty list
