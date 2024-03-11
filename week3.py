@@ -392,3 +392,104 @@ def list_reader(lst):
 
 # You would call the function and print its return value like this:
 print(list_reader(["a", "Bee", "Sea", "D", ""]))  # This will print the length of the non-empty list
+
+# /////////////
+
+# create a function tuple_reader(tuple), that takes a tuple as an input and performs the following actions in order:
+
+# print out the tuple sorted alphabetically
+# add the entire alphabetically sorted tuple's values to the end of the original tuple and print the entire tuple
+# return the length of the new tuple.
+# For example:
+
+# Test	Result
+# print(tuple_reader((2,3,1)))
+# (1, 2, 3)
+# (2, 3, 1, 1, 2, 3)
+# 6
+# print(tuple_reader((1,2,3,4,3,2,1)))
+# (1, 1, 2, 2, 3, 3, 4)
+# (1, 2, 3, 4, 3, 2, 1, 1, 1, 2, 2, 3, 3, 4)
+# 14
+# Answer:(penalty regime: 10, 20, ... %)
+
+
+def tuple_reader(tpl):
+    # Sort the tuple numerically (or alphabetically if it contains strings)
+    sorted_tpl = tuple(sorted(tpl))
+
+    # Concatenate the original tuple with the sorted one
+    new_tpl = tpl + sorted_tpl
+
+    # Print the sorted tuple
+    print(sorted_tpl)
+
+    # Print the new tuple
+    print(new_tpl)
+
+    # Return the length of the new tuple
+    return len(new_tpl)
+
+# Example usage, the print function calls will display the expected outputs
+print(tuple_reader((2,3,1)))
+print(tuple_reader((1,2,3,4,3,2,1)))
+
+# ////////////
+
+# Create a function dict_reader(dict) 
+# that takes a dictionary input with the simple form key:value and performs the following:
+
+# print the values of the dict as a list
+# print the keys of the dict as a tuple
+# print the key of the value that is the lowest in the dict
+# if the dictionary has a key equal to "hello", make its value "world"
+# return the entire dictionary.
+# For example:
+
+# Test	Result
+# d = {"key1": 10, "key2": 23, "hello":24}
+# print(dict_reader(d))
+# [10, 23, 24]
+# ('key1', 'key2', 'hello')
+# key1
+# {'key1': 10, 'key2': 23, 'hello': 'world'}
+# d = {"key1": 100, "key2": 23, "hello":"World", "hello":20}
+# print(dict_reader(d))
+# [100, 23, 20]
+# ('key1', 'key2', 'hello')
+# hello
+# {'key1': 100, 'key2': 23, 'hello': 'world'}
+# d = {"key1": "10", "key2": "23", "key3":"Hello"}
+# print(dict_reader(d))
+# ['10', '23', 'Hello']
+# ('key1', 'key2', 'key3')
+# key1
+# {'key1': '10', 'key2': '23', 'key3': 'Hello'}
+# Answer:(penalty regime: 10, 20, ... %)
+def dict_reader(d):
+    # Print the values of the dict as a list
+    print(list(d.values()))
+    
+    # Print the keys of the dict as a tuple
+    print(tuple(d.keys()))
+    
+    # Print the key of the value that is the lowest in the dict
+    min_key = min(d, key=d.get)
+    print(min_key)
+    
+    # If the dictionary has a key equal to "hello", make its value "world"
+    if "hello" in d:
+        d["hello"] = "world"
+    
+    # Return the entire dictionary
+    return d
+
+# Example usage:
+d = {"key1": 10, "key2": 23, "hello": 24}
+print(dict_reader(d))
+
+d = {"key1": 100, "key2": 23, "hello": "World", "hello": 20}
+print(dict_reader(d))
+
+d = {"key1": "10", "key2": "23", "key3": "Hello"}
+print(dict_reader(d))
