@@ -330,3 +330,70 @@ print(bogosort([1, 3]))
 # [2, 3, 4, 5, 1]
 # [1, 2, 3, 4, 5]
 # Answer:(penalty regime: 10, 20, ... %)
+def insertion_sort(lst):
+    # Go through each index in the list starting from 1 (since the first element is trivially sorted)
+    for i in range(1, len(lst)):
+        key = lst[i]
+        # Move elements of lst[0..i-1], that are greater than key,
+        # to one position ahead of their current position
+        j = i - 1
+        while j >=0 and key < lst[j]:
+            lst[j + 1] = lst[j]
+            j -= 1
+        lst[j + 1] = key
+        print(lst)  # Print the state of the list after inserting the element
+    return lst
+
+# Example usage:
+a = [5, 4, 3, 2, 1]
+sorted_a = insertion_sort(a)
+print(sorted_a)
+
+# ////////////
+
+# By the time you're working on this quiz you should be familiar with the following collection types, and know the differences between them:
+
+# Lists, eg ["a","b","c"]
+# tuples, eg (1,2,3)
+# Dictionaries/dicts, eg (1:"yes",3:"no","hello":3)
+# This quiz is mostly about editing and accessing collection information programatically.
+
+# Create a function list_reader(list) that takes a list input and does the following operations in the order provided. You may use any built in python functions:
+
+# Print the list in reverse order
+# Sorts the list alphabetically, and then prints the first value
+# remove all empty list elements, and then return the length of the list
+# For example:
+
+# Test                                                                                               	Result
+# print(list_reader(["a","Bee","Sea","D",""]))
+#                                                                                                 ['', 'D', 'Sea', 'Bee', 'a']
+
+#                                                                                                               4
+# print(list_reader([1,2,3]))
+#                                                                                                      [3, 2, 1]
+#                                                                                                                 1
+#                                                                                                                  3
+# Answer:(penalty regime: 10, 20, ... %)
+# Check
+
+def list_reader(lst):
+    # Print the list in reverse order
+    print(lst[::-1])
+    
+    # Ensure all elements are strings for sorting and filter out empty elements
+    non_empty_list = [str(item) for item in lst if str(item).strip()]
+    
+    # Sort the list alphabetically, considering case insensitivity
+    non_empty_list.sort(key=lambda x: x.lower())
+    
+    # Print the first value if the non-empty list is not empty
+    if non_empty_list:
+        print(non_empty_list[0])
+    
+    # Return the length of the non-empty list
+    return len(non_empty_list)
+
+# Then you would call the function like this:
+result = list_reader(["a", "Bee", "Sea", "D", ""])
+print(result)  # This should print the length of the non-empty list
