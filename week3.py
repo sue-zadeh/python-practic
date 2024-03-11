@@ -493,3 +493,28 @@ print(dict_reader(d))
 
 d = {"key1": "10", "key2": "23", "key3": "Hello"}
 print(dict_reader(d))
+
+# ////////////////
+
+# Create a function list_to_text(text), which will be passed the list text.
+
+# text is a list of tuples where each tuple is a line of text and each item in the tuple is a word.  Each word should be separated by a space (a space on the end of the line is OK) and each tuple should begin on a new line of text.
+
+# For example:
+
+
+# text=[
+#         ("Build","up","a","string","as","you","loop","through","the","tuple."),
+#         ("Then","print","it","when","you","move","between","the","tuples,"),
+#         ("i.e.,","the","items","in","the","main","list"),
+#     ]
+# This should be printed as:
+# Build up a string as you loop through the tuple.
+# Then print it when you move between the tuples,
+# i.e., the items in the main list
+# Answer:(penalty regime: 10, 20, ... %)
+
+def list_to_text(text_list):
+    for text_tuple in text_list:
+        # Join the words in the tuple with a space and print
+        print(" ".join(text_tuple))
