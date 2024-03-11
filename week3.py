@@ -206,7 +206,9 @@ print(check_sorted([1, 2, 3, 4, 5]))  # Should return True
 print(check_sorted([5, 4, 3, 2, 1]))  # Should return False
 print(check_sorted([1]))              # Should return True
 print(check_sorted([2, 1, 4, 5, 1]))  # Should return False
+
 # ///////////////
+
 # bubble sorting is a simple sorting algorithm that essentially compares each element to its neighbor to sort the list
 
 # write a function bubble_sort(list), which takes a list, and returns a list sorted from smallest to largest elements. without using list.sort().
@@ -243,3 +245,88 @@ print(check_sorted([2, 1, 4, 5, 1]))  # Should return False
 # [1, 2, 3, 4]
 # Answer:(penalty regime: 10, 20, ... %)
 # Check
+def bubble_sort(lst):
+    n = len(lst)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if lst[j] > lst[j+1]:
+                lst[j], lst[j+1] = lst[j+1], lst[j]
+                print(lst)
+    return lst
+
+# Test cases
+nlist = ["A", "C", "B", "a", "c", "b"]
+print(bubble_sort(nlist))
+
+nlist = [4, 3, 2, 1]
+print(bubble_sort(nlist))
+
+# ///////////////
+
+# bogosort is a silly sorting algorithm that takes a list as an input and randomly tests permutations of that list until it finds one that is sorted. It is a terribly inefficient search, and is about as effective as shuffling a deck until you get one that is sorted in order. using your "check_sorted(list)" function from the previous question (or the one below), create the bogosort(list) function. 
+
+# For each loop, print the random permutation, before returning the sorted list. In order to randomise a list, use import random at the top of your code, and random.shuffle(list) to randomise the list.
+
+# also note that your randomly generated lists from your ide will not match the test code output, the test code uses a seed to create the same random numbers, so do not set a seed in your own code.
+
+# Answer:(penalty regime: 10, 20, ... %)
+
+# import random
+
+# def check_sorted(nums):
+#     if len(nums) < 2:
+#         return True
+#     for i in range(len(nums) - 1):
+#         if nums[i] > nums[i + 1]:
+#             return False
+#     return True
+    
+# def bogosort(nums):
+#     #your code here
+
+import random
+
+def check_sorted(nums):
+    if len(nums) < 2:
+        return True
+    for i in range(len(nums) - 1):
+        if nums[i] > nums[i + 1]:
+            return False
+    return True
+    
+def bogosort(nums):
+    while not check_sorted(nums):
+        random.shuffle(nums)
+        print(nums)
+    return nums
+
+# Test the function with a sample list
+print(bogosort([1, 3]))
+
+# //////////////////
+
+# Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
+
+# write a function, insertion_sort(list) which takes a list input, and returns a sorted list. 
+
+# Insertion sort works by taking an element from an unsorted list, and inserting it in its correct position in an already sorted list. Remember from earlier, that a list that only has one element, is considered sorted.
+
+# input = unsorted list
+# use the i=0 of the unsorted list to create a "sorted list"
+# take the i+1 element of the unsorted list, and compare it to each element in the sorted list, until its correct position is found (ie until the element is larger than the previous element, but smaller than the next).
+# repeat for each element in the unsorted list, adding it to the correct position in the sorted list.
+# return the sorted list.
+# print the state of the list at the beginning of each loop, and then return the sorted list at the end.
+
+# For example:
+
+# Test	Result
+# a = [5,4,3,2,1]
+# insertionSort(a)
+# print(a)
+# [5, 4, 3, 2, 1]
+# [4, 5, 3, 2, 1]
+# [3, 4, 5, 2, 1]
+# [2, 3, 4, 5, 1]
+# [1, 2, 3, 4, 5]
+# Answer:(penalty regime: 10, 20, ... %)
