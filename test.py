@@ -191,3 +191,61 @@ def double_input(input):
 print(double_input("Hello"))  # Should print "HelloHello"
 print(double_input(2))        # Should print "4"
 print(double_input([1, 2, 3]))  # Should print "[1, 2, 3, 1, 2, 3]"
+
+# //////////////
+
+# Write a python function accel_finder that uses the formula Force = Mass * Acceleration to find the exact acceleration of an object, given its mass and a force being applied to it, and then returns it
+
+
+
+# For example:
+
+# Test	Result
+# print (accel_finder(10,2))
+# 0.2
+# print (accel_finder(10.1,6))
+# 0.594059405940594
+# print (accel_finder(1000000,8))
+# 8e-06
+# Answer:(penalty regime: 10, 20, ... %)
+def accel_finder(mass, force):
+    acceleration = force / mass
+    return acceleration
+
+# Test cases
+print(accel_finder(10, 2))
+print(accel_finder(10.1, 6))
+print(accel_finder(1000000, 8))
+
+# /////////////////////
+
+# Write a function palindrome_test(str) which tests whether a given string is a palindrome
+# (is the same forwards and backwards)
+
+# For example:
+
+# Test	Result
+# print(palindrome_test("ABBA"))
+# print(palindrome_test("The Who"))
+# [True]
+# [False]
+# print(palindrome_test("ARcaaaaA"))
+# print(palindrome_test("a"))
+# print(palindrome_test("aA"))
+# [False]
+# [True]
+# [False]
+# Answer:(penalty regime: 10, 20, ... %)
+
+def palindrome_test(str):
+    # Remove spaces and convert to lowercase for uniform comparison
+    cleaned_str = str.replace(" ", "").lower()
+    # Check if the string is equal to its reverse
+    return cleaned_str == cleaned_str[::-1]
+
+# Test cases
+print(palindrome_test("ABBA"))  # Should return True
+print(palindrome_test("The Who"))  # Should return False
+print(palindrome_test("ARcaaaaA"))  # Should return False
+print(palindrome_test("a"))  # Should return True
+print(palindrome_test("aA"))  # Should return True

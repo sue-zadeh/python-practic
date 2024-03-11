@@ -259,3 +259,97 @@ def square_times(var_one, var_two):
 print(square_times(1, 2))  # Should output 2
 print(square_times(3, 9))  # Should output 81
 print(square_times(-3, 2)) # Should output 18
+
+# /////
+
+# Using your knowledge of sets and lists, write a function uniques(list), that takes a list as an input, prints the list, and then returns a set containing only the unique elements from that list.
+
+# For example:
+
+# Test	Result
+# print(uniques([1,2,3]))
+# [1, 2, 3]
+# {1, 2, 3}
+# print(uniques([1,1,1,3,2,2,3,2,3]))
+# [1, 1, 1, 3, 2, 2, 3, 2, 3]
+# {1, 2, 3}
+# Answer:(penalty regime: 10, 20, ... %)
+def uniques(lst):
+    print(lst)
+    return set(lst)
+
+# Test cases
+print(uniques([1, 2, 3]))
+print(uniques([1, 1, 1, 3, 2, 2, 3, 2, 3]))
+
+# ////////////
+
+# Although discouraged in other courses and classes, within coding searching for answers that have already been written is highly recommended.  Some of the most useful sites are 
+
+# ws3schools
+# stackoverflow
+# the python language documentation
+
+
+# It is important that as you search you read through the code and attempt to understand each line.
+
+# A prime number if a number that is only divisible(without remainder) by itself, and 1. Write a function to check whether a number is a prime. 
+
+# Using google, try to find some code that has already been written, that can be used to check if some integer input is a prime number. Read a few results and either find one that fits the following signature, or adapt an existing solution, (or write your own if you're feeling confident!).
+
+# The function should be named test_prime(n) where n is an integer, and the function should return either True (if n is a prime) or False(if n is not). This test should also work for 1(Not a Prime), and 2(is a prime).
+
+# N.B. this is a hard question, and it is not expected that you fully understand it - it is primarily designed to teach you to google and adapt existing code.
+
+# For example:
+
+# Test	                           Result
+# print(test_prime(5))
+#                                  True
+# print(test_prime(4))
+#                                   False
+# print(test_prime(1))
+#                                   False
+
+
+
+def test_prime(n):
+    if n <= 1:
+        return False  # 1 and numbers less than 1 are not prime numbers
+    if n == 2:
+        return True   # 2 is the only even prime number
+    if n > 2 and n % 2 == 0:
+        return False  # All other even numbers are not primes
+
+    # Check for factors other than 1 and n
+    for current in range(3, int(n ** 0.5) + 1, 2):  # Only test up to the square root of n
+        if n % current == 0:
+            return False
+    return True
+
+# Test cases
+print(test_prime(5))  # Should return True
+print(test_prime(4))  # Should return False
+print(test_prime(1))  # Should return False
+
+
+# /////////
+
+
+# Write a function called fizzbuzz that takes one (integer) parameter and returns "fizz" if it is divisible by 5, "buzz" if it is divisible by 7 and "fizzbuzz" if it is divisible by both 5 and 7, if the number is not divisible by either, then the number that was input should be returned.
+
+
+
+# Just past your function into the answer box
+
+# Answer:(penalty regime: 10, 20, ... %)
+
+def fizzbuzz(n):
+    if n % 5 == 0 and n % 7 == 0:
+        return "fizzbuzz"
+    elif n % 5 == 0:
+        return "fizz"
+    elif n % 7 == 0:
+        return "buzz"
+    else:
+        return n
