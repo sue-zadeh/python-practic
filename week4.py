@@ -155,3 +155,33 @@ print(apply_lambdas([lambda a: a * 2, lambda a: a * 3, lambda a: a / 2], 3))    
 print(apply_lambdas([lambda a: a * 2, lambda a: a * 3, lambda a: a / 2], 10))    # Should output 30.0
 print(apply_lambdas([lambda a: a * 2, lambda a: a * 3, lambda a: a * 4], 3))     # Should output 72.0
 print(apply_lambdas([lambda a: a * 2, lambda a: a * 2, lambda a: a * 2, lambda a: a * 2, lambda a: a * 2, lambda a: a * 2, lambda a: a * 2, lambda a: a * 2], 2))    # Should output 512.0
+
+
+# Define the lambda functions as mentioed
+s = lambda a, b, c: a + b + c
+
+m = lambda a, b, c: a * b * c
+
+d = lambda a, b: a / b if b != 0 else 'Division by zero is not allowed'
+
+
+print(s(1,3,4))
+print (m(1,2,3))
+print (d(5,10))
+
+
+# ------------
+
+def apply_lambdas(input_list, input_int):
+    result = input_int
+    for func in input_list:
+        result = func(result)
+    return float(result)
+
+# Test the function
+print(apply_lambdas([lambda a: a * 2, lambda a: a * 3, lambda a: a / 2], 3))
+print(apply_lambdas([lambda a: a * 2, lambda a: a * 3, lambda a: a / 2], 10))
+print(apply_lambdas([lambda a: a * 2, lambda a: a * 3, lambda a: a * 4], 3))
+print(apply_lambdas([lambda a: a * 2, lambda a: a * 2, lambda a: a * 2, lambda a: a * 2,
+                     lambda a: a * 2, lambda a: a * 2, lambda a: a * 2, lambda a: a * 2], 2))
+

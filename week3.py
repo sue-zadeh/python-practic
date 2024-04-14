@@ -518,3 +518,5 @@ def list_to_text(text_list):
     for text_tuple in text_list:
         # Join the words in the tuple with a space and print
         print(" ".join(text_tuple))
+
+
